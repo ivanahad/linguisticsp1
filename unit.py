@@ -3,7 +3,7 @@
 #represente toutes les unites
 
 #takes a unit as an argument and converts it
-dicoUnits = ['grams', 'gram' 'kilo', 'kilos', 'kilogram', 'kilograms' 'slices','pound', 'pounds', 'lb', 'tbsp', 'tablespoon', 'tablespoons' 'tsp', 'teaspoon','teaspoons', 'cup', 'cups',
+dicoUnits = ['grams', 'gram', 'kilo', 'kilos', 'kilogram', 'kilograms' 'slices','pound', 'pounds', 'lb', 'tbsp', 'tablespoon', 'tablespoons' 'tsp', 'teaspoon','teaspoons', 'cup', 'cups',
              'inch', 'inches', 'piece', 'pieces' 'slice', 'slices' 'ounce', 'ounces', 'fluid ounce', 'fluid ounces', 'fl ounce', 'fl ounces', 'fl oz'
              'oz', 'chunk', 'chunks', 'bag', 'bags', 'box', 'boxes', 'dash', 'can', 'drop', 'drops', 'scoop', 'scoops', 'fillet', 'fillets', 'liter', 'liters']
 
