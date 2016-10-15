@@ -3,4 +3,9 @@
 # and to exctract it's quantiy, unit and name.
 
 
+def is_ingredient(line):
+    pass
+
+
+
 

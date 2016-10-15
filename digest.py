@@ -3,7 +3,7 @@
 # Usage: - ./digest.py path/to/input.html path/to/output.yaml
 
 import sys
-import html_parser
+from utility import extract_ingredients
 
 
 def main(args):
@@ -12,10 +12,6 @@ def main(args):
 
     extract_ingredients(input)
 
-
-def extract_ingredients(input):
-    with open(input, "r") as input_file:
-        html_parser.parse_all_file(input_file)
 
 arguments = sys.argv
 main(arguments)
