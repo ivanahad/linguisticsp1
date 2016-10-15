@@ -5,13 +5,19 @@ import ingredients
 
 
 class IngredientsHTMLParser(parser.HTMLParser):
+    def __init__(self):
+        self.list_ingredients = []
+        super().__init__()
+
     def handle_data(self, data):
-        if not ingredients.is_not_an_ingredient(data):
-            print("Data: " + data) # TODO check if is ingredient
+        ingredient = ingredients.line_to_ingredient(data)
+        if ingredient:
+            self.list_ingredients.append(ingredient)
 
 
-def parse_all_file(file_to_parse):
+def parse_whole_file(file_to_parse):
     ingredients_parser = IngredientsHTMLParser()
     for line in file_to_parse:
         ingredients_parser.feed(line)
+    return ingredients_parser.list_ingredients
 
