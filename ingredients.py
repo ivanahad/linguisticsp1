@@ -6,11 +6,45 @@ import unit
 
 
 def line_to_ingredient(line):
-    ingredient = regex.simpleregex(line.strip())
+    formatted_line = format_line(line)
+    ingredient = regex.simpleregex(formatted_line)
     if not ingredient:
         return None
     add_standardized_metric(ingredient)
     return ingredient
+
+
+def format_line(line):
+    new_line = line.strip()
+    new_line = remove_parenthesis(new_line)
+    new_line = remove_spaces(new_line)
+    return new_line
+
+
+def remove_parenthesis(line):
+    in_parenthesis = False
+    new_line = ""
+    for c in line:
+        if c == "(":
+            in_parenthesis = True
+        if not in_parenthesis:
+            new_line = new_line + c
+        if c == ")":
+            in_parenthesis = False
+    return new_line
+
+
+def remove_spaces(line):
+    new_line = ""
+    in_spaces = False
+    for c in line:
+        if c != " ":
+            in_spaces = False
+        if not in_spaces:
+            new_line = new_line + c
+        if c == " ":
+            in_spaces = True
+    return new_line
 
 
 def add_standardized_metric(ingredient):
