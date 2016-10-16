@@ -24,7 +24,7 @@ class IngredientsHTMLParser(parser.HTMLParser):
         if len(data) < 25:
             if "ingredient" in data.lower():
                 self.in_ingredient_box = True
-            if "instruction" in data.lower() or "direction" in data.lower():
+            if "instruction" in data.lower() or "direction" in data.lower() or "procedure" in data.lower():
                 self.in_ingredient_box = False
                 self.finish = True
         return self.in_ingredient_box
