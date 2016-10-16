@@ -7,10 +7,20 @@ import unit
 
 def line_to_ingredient(line):
     formatted_line = format_line(line)
-    ingredient = regex.simpleregex(formatted_line)
+    ingredient = regex.simple_regex(formatted_line)
     if not ingredient:
         return None
     add_standardized_metric(ingredient)
+    return ingredient
+
+
+def line_to_ingredient_strong(line):
+    formatted_line = format_line(line)
+    ingredient = regex.advanced_regex(formatted_line)
+    if not ingredient:
+        return None
+    if "unit" in ingredient.keys():
+        add_standardized_metric(ingredient)
     return ingredient
 
 
