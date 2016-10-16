@@ -105,6 +105,10 @@ dicoUnits = ['grams',
              't',
              'tb',
              'Tb',
+             'tb.',
+             'Tb.',
+             'TB',
+             'TB.',
              'pack',
              'package',
              'tube',
@@ -125,16 +129,15 @@ def convert_name_unit(unit):
             return 'pound'
         elif(unit.lower() == 'inch' or unit.lower()=='inches'):#inches in centimeters
             return 'inch'
-        elif(unit.lower()=='cup' or unit.lower()=='C' or unit.lower()=='c' or unit.lower() == 'cups' or unit.lower() == 'c.' or unit.lower() == 'C.'):
+        elif(unit.lower()=='cup' or or unit.lower()=='c' or unit.lower() == 'cups' or unit.lower() == 'c.'):
             return 'cup'
-        elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower()=='T' or unit.lower() == 'tbsp' or unit.lower() == 'tbsp.' or unit.lower() == 'T.'):
+        elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower() == 'tbsp' or unit.lower() == 'tbsp.'):
             return 'tablespoon'
         elif (unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons' or unit.lower() == 't' or unit.lower() == 'tsp' or unit.lower() == 'tsp.'
-              or unit.lower() == 't.' or unit.lower() == 'tb'):
+              or unit.lower() == 't.' or unit.lower() == 'tb' or unit.lower() == 'tb.'):
             return 'teaspoon'
-        elif (unit.lower() == 'g.'):
+        elif (unit.lower() == 'g.' or unit.lower()=='g'):
             return 'gram'
-
         else:
             return unit
 # returns the new quantity after conversion
