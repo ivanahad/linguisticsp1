@@ -1,0 +1,3 @@
+- {ingredient: apple, quantity: 1/2}
+- {ingredient: strawberries, metric_q: 236.59, metric_u: grams, quantity: 1, unit: cup}
+- {ingredient: watermelon, metric_q: 591.47, metric_u: grams, quantity: 2 1/2, unit: cup}

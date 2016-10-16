@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
-#represente toutes les unites
+# represente toutes les unites
 
-#takes a unit as an argument and converts it
-dicoUnits = ['grams', 'gram', 'kilo', 'kilos', 'kilogram', 'kilograms' 'slices','pound', 'pounds', 'lb', 'tbsp', 'tablespoon', 'tablespoons' 'tsp', 'teaspoon','teaspoons', 'cup', 'cups',
-             'inch', 'inches', 'piece', 'pieces' 'slice', 'slices' 'ounce', 'ounces', 'fluid ounce', 'fluid ounces', 'fl ounce', 'fl ounces', 'fl oz'
-             'oz', 'chunk', 'chunks', 'bag', 'bags', 'box', 'boxes', 'dash', 'can', 'drop', 'drops', 'scoop', 'scoops', 'fillet', 'fillets', 'liter', 'liters', 'C', 'T', 't']
+# takes a unit as an argument and converts it
+dicoUnits = ['grams', 'gram', 'kilo', 'kilos', 'kilogram', 'kilograms' 'slices','pound', 'pounds', 'lb', 'tbsp',
+             'tablespoon', 'tablespoons' 'tsp', 'teaspoon','teaspoons', 'cup', 'cups',
+             'inch', 'inches', 'piece', 'pieces' 'slice', 'slices' 'ounce', 'ounces', 'fluid ounce', 'fluid ounces',
+             'fl ounce', 'fl ounces', 'fl oz',
+             'oz', 'chunk', 'chunks', 'bag', 'bags', 'box', 'boxes', 'dash', 'can', 'drop', 'drops', 'scoop', 'scoops',
+             'fillet', 'fillets', 'liter', 'liters', 'C', 'c', 'T', 't']
 
-#returns the new quantity after conversion
+
+# returns the new quantity after conversion
 def convertQuantity(unit):
     if unit in dicoUnits:
         if (unit.lower() == 'fluid ounce' or unit.lower() == 'fluid ounces' or
@@ -19,8 +23,8 @@ def convertQuantity(unit):
             return 453.592
         elif(unit.lower() == 'inch' or unit.lower()=='inches'):#inches in centimeters
             return 2.54
-    else:
-        return 1
+    return 1
+
 
 #returns the standard unit after conversion. If it is already a standard unit, return same unit.
 #ajouter T, C, et t
@@ -39,9 +43,17 @@ def convertName(unit):
     else:
         return None
 
+
 #tells if a word is indeed a unit. Used to test if a line of ingredient contains a unit.
 def isInDico(unit):
     for element in dicoUnits:
         if unit.lower() in element.lower():
             return True
     return False
+
+
+def convert_fraction(fraction):
+    if '/' in fraction:
+        operands = fraction.split("/")
+        return int(operands[0]) / int(operands[1])
+    return int(fraction)
