@@ -5,7 +5,7 @@ import regex
 import unit
 
 
-def line_to_ingredient(line):
+def line_to_ingredient_safe(line):
     formatted_line = format_line(line)
     ingredient = regex.simple_regex(formatted_line)
     if not ingredient:
@@ -14,7 +14,7 @@ def line_to_ingredient(line):
     return ingredient
 
 
-def line_to_ingredient_strong(line):
+def line_to_ingredient_unsafe(line):
     formatted_line = format_line(line)
     ingredient = regex.advanced_regex(formatted_line)
     if not ingredient:
