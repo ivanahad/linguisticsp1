@@ -2,7 +2,7 @@
 import re
 
 
-simple = r"-?(?P<quantity>\d+(\/\d+)?) (?P<unit>\w+\.?) (?P<element>.+)"  # quantity - unit - element
+simple = r"-?(?P<quantity>\d+(\/\d)?( \d\/\d)?) (?P<unit>\w+\.?) (?P<element>.+)"  # quantity - unit - element
 only_element = r'-?(?P<element>.+)'  # element
 or_regex = r"|"
 

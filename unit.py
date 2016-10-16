@@ -118,7 +118,7 @@ def get_unit_qty(unit, qty):
     standardized = convertName(unit)
     new_quantity = None
     if qty:
-        quantity = convert_fraction(qty)
+        quantity = remove_fraction_quantity(qty)
         new_quantity = quantity * convertQuantity(unit)
 
     return (standardized, new_quantity)
@@ -132,4 +132,4 @@ def remove_fraction_quantity(quantity):
         operandtwo = convert_fraction(operands[1])
         new_quantity = operandone + operandtwo
         return new_quantity
-    return quantity
+    return convert_fraction(quantity)

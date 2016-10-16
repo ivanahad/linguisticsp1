@@ -12,6 +12,7 @@ class IngredientsHTMLParser(parser.HTMLParser):
         super().__init__()
 
     def handle_data(self, data):
+        self.check_if_outside_ingredient_box(data)
         if self.in_ingredient_box:
             ingredient = ingredients.line_to_ingredient_strong(data)
         else:
@@ -24,10 +25,12 @@ class IngredientsHTMLParser(parser.HTMLParser):
         if len(data) < 25:
             if "ingredient" in data.lower():
                 self.in_ingredient_box = True
+
+    def check_if_outside_ingredient_box(self, data):
+        if len(data) < 25:
             if "instruction" in data.lower() or "direction" in data.lower() or "procedure" in data.lower():
                 self.in_ingredient_box = False
                 self.finish = True
-        return self.in_ingredient_box
 
 
 def parse_whole_file(file_to_parse):
