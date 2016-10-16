@@ -5,7 +5,7 @@ import regex
 import unit
 
 
-def line_to_ingredient(line):
+def line_to_ingredient_safe(line):
     formatted_line = format_line(line)
     ingredient = regex.simple_regex(formatted_line)
     if not ingredient:
@@ -14,7 +14,7 @@ def line_to_ingredient(line):
     return ingredient
 
 
-def line_to_ingredient_strong(line):
+def line_to_ingredient_unsafe(line):
     formatted_line = format_line(line)
     ingredient = regex.advanced_regex(formatted_line)
     if not ingredient:
@@ -58,9 +58,8 @@ def remove_spaces(line):
 
 
 def add_standardized_metric(ingredient):
-    metric_u = unit.convertName(ingredient["unit"])
+    (metric_u, metric_q) = unit.get_unit_qty(ingredient.get("unit", None), ingredient.get("quantity", None))
     if metric_u:
         ingredient["metric_u"] = metric_u
-        qty = unit.convert_fraction(ingredient["quantity"])
-        metric_q = qty * unit.convertQuantity(ingredient["unit"])
-        ingredient['metric_q'] = metric_q
+    if metric_q:
+        ingredient["metric_q"] = metric_q

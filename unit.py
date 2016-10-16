@@ -179,7 +179,7 @@ def convertName(unit):
         return None
 
 
-#tells if a word is indeed a unit. Used to test if a line of ingredient contains a unit.
+# tells if a word is indeed a unit. Used to test if a line of ingredient contains a unit.
 def isInDico(unit):
     for element in dicoUnits:
         if unit.lower() in element.lower():
@@ -196,9 +196,13 @@ def convert_fraction(fraction):
 # returns a tuple with the standardized unit and the according quantity
 def get_unit_qty(unit, qty):
     standardized = convertName(unit)
-    quantity = convert_fraction(qty)
-    new_quantity = quantity * convertQuantity(unit)
+    new_quantity = None
+    if qty:
+        quantity = remove_fraction_quantity(qty)
+        new_quantity = quantity * convertQuantity(unit)
+
     return (standardized, new_quantity)
+
 
 # if the quantity is of the form "X Z/Y", returns the equivalent float
 def remove_fraction_quantity(quantity):
