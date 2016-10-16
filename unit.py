@@ -5,7 +5,7 @@
 #takes a unit as an argument and converts it
 dicoUnits = ['grams', 'gram', 'kilo', 'kilos', 'kilogram', 'kilograms' 'slices','pound', 'pounds', 'lb', 'tbsp', 'tablespoon', 'tablespoons' 'tsp', 'teaspoon','teaspoons', 'cup', 'cups',
              'inch', 'inches', 'piece', 'pieces' 'slice', 'slices' 'ounce', 'ounces', 'fluid ounce', 'fluid ounces', 'fl ounce', 'fl ounces', 'fl oz'
-             'oz', 'chunk', 'chunks', 'bag', 'bags', 'box', 'boxes', 'dash', 'can', 'drop', 'drops', 'scoop', 'scoops', 'fillet', 'fillets', 'liter', 'liters']
+             'oz', 'chunk', 'chunks', 'bag', 'bags', 'box', 'boxes', 'dash', 'can', 'drop', 'drops', 'scoop', 'scoops', 'fillet', 'fillets', 'liter', 'liters', 'C', 'T', 't']
 
 #returns the new quantity after conversion
 def convertQuantity(unit):
@@ -23,6 +23,7 @@ def convertQuantity(unit):
         return 1
 
 #returns the standard unit after conversion. If it is already a standard unit, return same unit.
+#ajouter T, C, et t
 def convertName(unit):
     if unit in dicoUnits:
         if(unit.lower() == 'ounce' or unit.lower()=='ounces' or unit.lower()=='oz' or unit.lower()=='kilograms' or unit.lower()=='kilogram'):

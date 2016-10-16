@@ -12,9 +12,11 @@ class TestUnitMethods(unittest.TestCase):
         element = 'inch'
         element1 = 'lb'
         element2 = "fluid ounce"
+        element3 = "gram"
         self.assertEqual(unit.convertName(element), 'centimeters')
         self.assertEqual(unit.convertName(element1), 'grams')
         self.assertEqual(unit.convertName(element2), 'liters')
+        self.assertEqual(unit.convertName(element3), 'gram')
 
     def test_convertQuantity(self):
         element = 'inch'
