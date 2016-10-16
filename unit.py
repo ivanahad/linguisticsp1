@@ -23,18 +23,26 @@ def convertQuantity(unit):
             return 453.592
         elif(unit.lower() == 'inch' or unit.lower()=='inches'):#inches in centimeters
             return 2.54
+        elif(unit.lower()=='cup' or unit.lower()=='C' or unit.lower=='c'):
+            return 236.59
+        elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower()=='T'):
+            return 15
+        elif (unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons' or unit.lower() == 't'):
+            return 5
     return 1
 
 
 #returns the standard unit after conversion. If it is already a standard unit, return same unit.
-#ajouter T, C, et t
 def convertName(unit):
     if unit in dicoUnits:
         if(unit.lower() == 'ounce' or unit.lower()=='ounces' or unit.lower()=='oz' or unit.lower()=='kilograms' or unit.lower()=='kilogram'):
             return 'grams'
         elif(unit.lower() == 'fluid ounce' or unit.lower()=='fluid ounces' or unit.lower()=='fl oz' or unit.lower()=='fl ounce' or unit.lower()=='fl ounces'):
             return 'liters'
-        elif (unit.lower() == 'lb' or unit.lower()=='lbs' or unit.lower() == 'pound' or unit.lower()=='pounds'):
+        elif (unit.lower() == 'lb' or unit.lower()=='lbs' or unit.lower() == 'pound' or unit.lower()=='pounds'
+              or unit.lower() == 'cup' or unit.lower() == 'cup' or unit.lower()=='C' or unit.lower()=='c'
+              or unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower()=='T'
+              or unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons' or unit.lower() == 't'):
             return 'grams'
         elif (unit.lower() == 'inch' or unit.lower()=='inches'):
             return 'centimeters'
