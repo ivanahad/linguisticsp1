@@ -20,6 +20,9 @@ def main(args):
     print("Number of units : " + str(len(units)))
     print("Number of quantities : " + str(len(quantities)))
     print("Number of empty files : " + str(empty_files))
+    top = list(ingredients.items())
+    top.sort(key=lambda x: x[1], reverse=True)
+    print(top[0:25])
 
 
 def get_files(dir_path):
@@ -36,6 +39,7 @@ def compute_statistics(files):
 
 def add_stat_from_data(data):
     if not data:
+        global empty_files
         empty_files += 1
         return
     for ingredient in data:

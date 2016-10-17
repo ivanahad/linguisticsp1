@@ -43,6 +43,8 @@ class IngredientsHTMLParser(parser.HTMLParser):
             return True
         if len(ingredient["ingredient"]) < 3:
             return True
+        if len(ingredient["ingredient"]) > 150:
+            return True
         return False
 
 

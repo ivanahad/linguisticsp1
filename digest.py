@@ -8,6 +8,7 @@ from os.path import isfile, join
 
 RESULTS_DIR = "./result/"
 
+
 def main(args):
     if len(args) == 2:
         dir_path = args[1]
