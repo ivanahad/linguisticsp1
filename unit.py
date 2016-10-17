@@ -37,6 +37,9 @@ others = ['inch',
           'pinch',
           'bunch']
 
+teaspoon = ['tsp', 'tsp.', 'ts', 'ts.', 'teaspoon', 'teaspoons', 'tb.', 'tb']
+pound = ['']
+
 dicoUnits = ['grams',
              'gram',
              'g',
@@ -133,8 +136,7 @@ def convert_name_unit(unit):
             return 'cup'
         elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower() == 'tbsp' or unit.lower() == 'tbsp.'):
             return 'tablespoon'
-        elif (unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons' or unit.lower() == 't' or unit.lower() == 'tsp' or unit.lower() == 'tsp.'
-              or unit.lower() == 't.' or unit.lower() == 'tb' or unit.lower() == 'tb.'):
+        elif (unit.lower() in teaspoon):
             return 'teaspoon'
         elif (unit.lower() == 'g.' or unit.lower()=='g'):
             return 'gram'
@@ -203,7 +205,7 @@ def get_unit_qty(unit, qty):
     new_quantity = None
     if qty:
         quantity = remove_fraction_quantity(qty)
-        new_quantity = quantity * convertQuantity(unit)
+        new_quantity = int(quantity) * convertQuantity(unit)
 
     return (standardized, new_quantity)
 
