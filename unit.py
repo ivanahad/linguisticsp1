@@ -23,9 +23,15 @@ others = ['inch',
           'centimeter',
           'chunk',
           'slice',
+          'slices',
           'chunk',
+          'chunks',
+          'piece',
+          'pieces',
           'bag',
+          'bags',
           'box',
+          'boxes',
           'dash',
           'can',
           'cans',
@@ -52,13 +58,7 @@ gram = ['gram', 'grams', 'g.', 'g']
 kilogram = ['kilogram', 'kilograms', 'kilo', 'kilos', 'kilo.', 'kg.', 'kg']
 ounce = ['ounce', 'ounces', "oz", "oz."]
 fluid_ounce = ['fluid ounce', 'fluid ounces', 'fl ounce','fl ounces','fl oz', 'fl. ounce', 'fl. oz', 'fl ounces']
-slice = ['slice', 'slices']
 cup = ['cup', 'cups', 'C', 'c', 'c.']
-inch = ['inch', 'inches']
-piece = ['piece', 'pieces']
-chunks = ['chunk', 'chunks']
-bag = ['bag', 'bags']
-box = ['box', 'boxes']
 
 dicoUnits2 = ['grams',
              'gram',
@@ -149,8 +149,6 @@ def convert_name_unit(unit):
             return 'ounce'
         elif(unit.lower() in pound): #pounds en gram
             return 'pound'
-        elif(unit.lower() in inch):#inches in centimeters
-            return 'inch'
         elif(unit.lower() in cup):
             return 'cup'
         elif(unit == 'T' or unit.lower() in tablespoon):
@@ -161,47 +159,6 @@ def convert_name_unit(unit):
             return 'gram'
         else:
             return unit
-# # returns the new quantity after conversion
-# # inutile?
-# def convertQuantity(unit):
-#     if unit in dicoUnits:
-#         if (unit.lower() == 'fluid ounce' or unit.lower() == 'fluid ounces'):
-#             return 0.0295735
-#         elif (unit.lower() == 'ounce' or unit.lower() == 'ounces'):
-#             return 28.3495
-#         elif(unit.lower() == 'pound' or unit.lower()=='pounds'): #pounds en gram
-#             return 453.592
-#         elif(unit.lower() == 'inch' or unit.lower()=='inches'):#inches in centimeters
-#             return 2.54
-#         elif(unit.lower()=='cup' or unit.lower() == 'cups'):
-#             return 236.59
-#         elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons'):
-#             return 15
-#         elif (unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons'):
-#             return 5
-#     return 1
-#
-#
-# #returns the standard unit after conversion. If it is already a standard unit, return same unit.
-# #inutile
-# def convertName(unit):
-#     if unit in dicoUnits:
-#         if(unit.lower() == 'ounce' or unit.lower()=='ounces' or unit.lower()=='kilograms' or unit.lower()=='kilogram'
-#            or unit.lower() == 'g'):
-#             return 'grams'
-#         elif(unit.lower() == 'fluid ounce' or unit.lower()=='fluid ounces'):
-#             return 'liters'
-#         elif (unit.lower() == 'pound' or unit.lower()=='pounds'
-#               or unit.lower() == 'cup' or unit.lower() == 'cups'
-#               or unit.lower() == 'tablespoons' or unit.lower()=='tablespoon'
-#               or unit.lower() == 'teaspoon' or unit.lower() == 'teaspoons'):
-#             return 'grams'
-#         elif (unit.lower() == 'inch' or unit.lower()=='inches'):
-#             return 'centimeters'
-#         else:
-#             return unit
-#     else:
-#         return None
 
 # fraction is a string. Returns the float value of a string of the form "X/Y"
 def convert_fraction(fraction):
@@ -230,13 +187,3 @@ def remove_fraction_quantity(quantity):
         new_quantity = operandone + operandtwo
         return new_quantity
     return quantity
-
-
-#methode convertissant les vulgar fractions?
-#1-2 quantity?
-#parfois quantity = '3.'
-#15-ounce
-#500g = quantity
-#retirer "of"
-#1 1/2 - 2
-#methode qui retire le point à la fin de la unit?
