@@ -70,13 +70,15 @@ def check_metric(ingredient):
     metric = ingredient.get("unit", None)
     if metric and is_not_a_metric(ingredient):
         not_a_metric(ingredient)
-    else:
-        ingredient["unit"] = unit.convert_name_unit(metric)
 
 
 def is_not_a_metric(ingredient):
-    return unit.is_a_unit(ingredient['unit'])
+    metric = unit.convert_name_unit(ingredient["unit"])
+    if metric:
+        ingredient["unit"] = metric
+        return False
+    return True
 
 
 def not_a_metric(ingredient):
-    ingredient["ingredient"] = ingredient.pop("unit") + ingredient["ingredient"]
+    ingredient["ingredient"] = ingredient.pop("unit") + " " + ingredient["ingredient"]

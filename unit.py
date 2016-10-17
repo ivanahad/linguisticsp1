@@ -23,9 +23,15 @@ others = ['inch',
           'centimeter',
           'chunk',
           'slice',
+          'slices',
           'chunk',
+          'chunks',
+          'piece',
+          'pieces',
           'bag',
+          'bags',
           'box',
+          'boxes',
           'dash',
           'can',
           'cans',
@@ -52,13 +58,7 @@ gram = ['gram', 'grams', 'g.', 'g']
 kilogram = ['kilogram', 'kilograms', 'kilo', 'kilos', 'kilo.', 'kg.', 'kg']
 ounce = ['ounce', 'ounces', "oz", "oz."]
 fluid_ounce = ['fluid ounce', 'fluid ounces', 'fl ounce','fl ounces','fl oz', 'fl. ounce', 'fl. oz', 'fl ounces']
-slice = ['slice', 'slices']
 cup = ['cup', 'cups', 'C', 'c', 'c.']
-inch = ['inch', 'inches']
-piece = ['piece', 'pieces']
-chunks = ['chunk', 'chunks']
-bag = ['bag', 'bags']
-box = ['box', 'boxes']
 
 
 # standardizes the name of the unit. Ex : t., tsp, 't', 'teaspoons' = teaspoon.
@@ -70,8 +70,6 @@ def convert_name_unit(unit):
             return 'ounce'
         elif unit.lower() in pound:
             return 'pound'
-        elif unit.lower() in inch:
-            return 'inch'
         elif unit.lower() in cup:
             return 'cup'
         elif unit == 'T' or unit.lower() in tablespoon:
@@ -82,6 +80,8 @@ def convert_name_unit(unit):
             return 'gram'
         elif unit.lower() in others:
             return unit
+        else:
+            return None
 
 
 def get_conversion_rate(unit):
