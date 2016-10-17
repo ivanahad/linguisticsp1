@@ -5,7 +5,7 @@
 # stocker les valeurs plurielles aussi?
 solid = {'gram' : 1,
          'kilogram' : 1000,
-         'ounce' : 28.3495,
+         'ounce' : '28.3495,grams',
          'tablespoon' : 15,
          'teaspoon': 5,
          'pound' : 453.592,
@@ -129,7 +129,7 @@ def convert_name_unit(unit):
             return 'pound'
         elif(unit.lower() == 'inch' or unit.lower()=='inches'):#inches in centimeters
             return 'inch'
-        elif(unit.lower()=='cup' or or unit.lower()=='c' or unit.lower() == 'cups' or unit.lower() == 'c.'):
+        elif(unit.lower()=='cup' or unit.lower()=='c' or unit.lower() == 'cups' or unit.lower() == 'c.'):
             return 'cup'
         elif(unit.lower()=='tablespoon' or unit.lower()=='tablespoons' or unit.lower() == 'tbsp' or unit.lower() == 'tbsp.'):
             return 'tablespoon'
@@ -162,6 +162,7 @@ def convertQuantity(unit):
 
 
 #returns the standard unit after conversion. If it is already a standard unit, return same unit.
+#inutile
 def convertName(unit):
     if unit in dicoUnits:
         if(unit.lower() == 'ounce' or unit.lower()=='ounces' or unit.lower()=='kilograms' or unit.lower()=='kilogram'
